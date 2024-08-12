@@ -405,8 +405,8 @@ func (s *azureScraper) getResourceMetricsValues(ctx context.Context, resourceID 
 				&opts,
 			)
 			if err != nil {
-				s.settings.Logger.Error("failed to get Azure Metrics values data", zap.Error(err))
-				return
+				s.settings.Logger.Error("silent add break failed to get Azure Metrics values data", zap.Error(err))
+				break
 			}
 
 			for _, metric := range result.Value {
